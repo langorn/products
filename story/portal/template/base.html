@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+    	{% block header %}
+
+    	
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Home One || Goetze</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- favicon
+		============================================ -->		
+        <link rel="shortcut icon" type="image/x-icon" href="{% static "img/favicon.ico" %} ">		
+		<!-- Google Fonts
+		============================================ -->
+		<link href='https://fonts.googleapis.com/css?family=Poppins:400,500,700,300,600' rel='stylesheet' type='text/css'>	 
+
+
+		{% endblock %}
+    </head>
+
+<body>
+
+{% if user %}
+	<!-- if user login , show his name -->
+	HI , {{user.username}} <a href="/logout/">Logout</a>
+{% else %}		 
+	<!-- if user not login , remind him to login -->
+	Please Login <a href="/login/">Login</a>
+{% endif %}
+
+{% block content %}
+
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+
+{% endblock %}
+
+{% block other_js %}
+
+{% endblock %}
+</body>
+</html>
