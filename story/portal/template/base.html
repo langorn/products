@@ -16,6 +16,11 @@
 		<!-- Google Fonts
 		============================================ -->
 		<link href='https://fonts.googleapis.com/css?family=Poppins:400,500,700,300,600' rel='stylesheet' type='text/css'>	 
+		<link href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css' rel='stylesheet' type='text/css'>	 
+
+		 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+
+
 
 
 		{% endblock %}
@@ -23,13 +28,32 @@
 
 <body>
 
+
+
 {% if user %}
 	<!-- if user login , show his name -->
-	HI , {{user.username}} <a href="/logout/">Logout</a>
+	HI , <i class="ui icon user"></i>
+			{{user.username}}  
+			<a href="/login/"><button class="ui button"><i class="ui icon login"></i>Login</button></a>
+			<a href="/logout/"><button class="ui button"><i class="ui icon logout"></i>Logout</button></a>
 {% else %}		 
 	<!-- if user not login , remind him to login -->
 	Please Login <a href="/login/">Login</a>
 {% endif %}
+
+<div class="ui three item menu">
+  <a class="active item" href="/">INDEX</a>
+  <a class="item" href="/book/add/">
+	  	<div class="ui primary button">
+	  		ADD BOOK
+	  	</div>
+  </a>
+  <a class="item" href="/books/">
+	  	<div class="ui primary button">
+	  		BOOK LIST(JSON)
+	  	</div>
+  </a>
+</div>
 
 {% block content %}
 

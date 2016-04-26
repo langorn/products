@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+    {% if messages %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    {% endif %}
+
+
+<form action="/book/create/" method="POST">
+	<!-- csrf is a function to prevent form attack , you must add it into it ,otherwise it wont work -->
+	{% csrf_token %}
+	<div class="ui form">
+		<table class="ui table">
+			{{form.as_table}}
+		</table>
+		<button class="ui button teal">Submit</button>
+	</div>
+</form>
+{% endblock %}

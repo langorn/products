@@ -11,6 +11,10 @@ class BookCategory(models.Model):
 	description = models.TextField(blank=True)
 	active = models.BooleanField(default=None)
 
+	def __unicode__(self):
+		return '(%s)' % (self.name)
+	
+
 class Book(models.Model):
 	name = models.CharField(max_length=200)
 	category = models.ForeignKey(BookCategory)

@@ -4,16 +4,16 @@
 
 	<form action="/login/" method="POST">
 		 {% csrf_token %}
-		<div class="ui forms">
+		<div class="ui form" style="margin:10px;">
 
 			<label for="username ">Username</label>
 				<input type="text" name="username">
 			<label for="username ">Password</label>
 			<input type="password" name="password">
 
+			<button class="ui button teal" style="margin-top:10px;">Submit</button>
 		</div>
-		<input type="submit">
+
 
 	</form>
-
 {% endblock %}

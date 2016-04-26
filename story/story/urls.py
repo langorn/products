@@ -20,9 +20,19 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     #index 
-    url(r'^$','portal.views.index',name='index'),
-    url(r'books/','portal.views.book_json',name='books'),
+    url(r'^$','portal.views.index', name='index'),
 
+    #output_ json
+    url(r'books/','portal.views.book_json', name='books'),
+    url(r'book/(?P<book_id>\d+)/$','portal.views.get_book', name='get_book'),
+
+    #CRUD
+    url(r'book/add/$','portal.views.add_book', name='add_book'),
+    url(r'book/create/','portal.views.create_book', name='create_book'),
+    url(r'book/update/(?P<book_id>\d+)/','portal.views.update_book', name='update_book'),
+    url(r'book/modify/(?P<book_id>\d+)/','portal.views.modify', name='modify'),
+    url(r'book/delete/(?P<book_id>\d+)/','portal.views.delete_book', name='delete_book'),
+    
     #user
     url(r'^login/','portal.views.user_login', name='login'),
 	url(r'^logout/$', 'django.contrib.auth.views.logout',{'next_page':'/'} ,name='logout')

@@ -2,7 +2,36 @@
 {% load staticfiles %}
 
 {% block content %}
+	<table class="ui table">
 	{% for book in books %}
-		{{book.name}}
+		<tr>
+			<td>
+				{{book.name}}
+			</td>
+			<td>
+				<a href="/book/{{book.pk}}/">
+					<button class="ui button teal">
+						JSON
+					</button>	
+				</a>
+			</td>
+
+			<td>
+				<a href="/book/update/{{book.pk}}/">
+					<button class="ui button teal">
+						EDIT
+					</button>
+				</a>	
+			</td>
+			<td>
+				<a href="/book/delete/{{book.pk}}/">
+					<button class="ui button orange">
+						DELETE
+					</button>
+				</a>
+			</td>
+
+		</tr>
 	{% endfor %}
+	</table>
 {% endblock %}
